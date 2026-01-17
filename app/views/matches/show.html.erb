@@ -1,0 +1,110 @@
+<% if @errors.present? %>
+  <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+    <p><%= @errors.join(", ") %></p>
+  </div>
+<% end %>
+
+<% if @match %>
+  <div class="bg-white rounded-lg shadow-lg p-8 max-w-4xl mx-auto">
+    <div class="text-center mb-6">
+      <% if @match.dig("league", "logo") %>
+        <img src="<%= @match.dig("league", "logo") %>" alt="<%= @match.dig("league", "name") %>" class="w-16 h-16 mx-auto mb-2">
+      <% end %>
+      <h2 class="text-xl font-medium text-gray-600"><%= @match.dig("league", "name") %></h2>
+      <p class="text-gray-500"><%= @match.dig("league", "round") %></p>
+    </div>
+
+    <div class="flex items-center justify-center space-x-8 mb-8">
+      <div class="text-center">
+        <% if @match.dig("teams", "home", "logo") %>
+          <img src="<%= @match.dig("teams", "home", "logo") %>" alt="<%= @match.dig("teams", "home", "name") %>" class="w-24 h-24 mx-auto mb-4">
+        <% end %>
+        <h3 class="text-xl font-bold"><%= @match.dig("teams", "home", "name") %></h3>
+      </div>
+
+      <div class="text-center px-8">
+        <% status = @match.dig("fixture", "status", "short") %>
+        <% if ["FT", "AET", "PEN"].include?(status) %>
+          <div class="text-5xl font-bold mb-2">
+            <span class="<%= @match.dig("teams", "home", "winner") ? "text-green-600" : "" %>"><%= @match.dig("goals", "home") %></span>
+            <span class="mx-4">-</span>
+            <span class="<%= @match.dig("teams", "away", "winner") ? "text-green-600" : "" %>"><%= @match.dig("goals", "away") %></span>
+          </div>
+          <p class="text-gray-500">Full Time</p>
+          <% if @match.dig("score", "penalty", "home") %>
+            <p class="text-sm text-gray-400">
+              (PEN: <%= @match.dig("score", "penalty", "home") %> - <%= @match.dig("score", "penalty", "away") %>)
+            </p>
+          <% end %>
+        <% elsif ["1H", "2H", "HT", "ET", "P", "LIVE"].include?(status) %>
+          <div class="text-5xl font-bold text-red-600 mb-2">
+            <%= @match.dig("goals", "home") %> - <%= @match.dig("goals", "away") %>
+          </div>
+          <p class="text-red-500 animate-pulse text-lg">
+            <% if status == "HT" %>
+              Half Time
+            <% else %>
+              <%= @match.dig("fixture", "status", "elapsed") %>' LIVE
+            <% end %>
+          </p>
+        <% else %>
+          <div class="text-3xl font-bold text-gray-600 mb-2">
+            <%= Time.parse(@match.dig("fixture", "date")).strftime("%H:%M") %>
+          </div>
+          <p class="text-gray-500"><%= Date.parse(@match.dig("fixture", "date")).strftime("%B %d, %Y") %></p>
+        <% end %>
+      </div>
+
+      <div class="text-center">
+        <% if @match.dig("teams", "away", "logo") %>
+          <img src="<%= @match.dig("teams", "away", "logo") %>" alt="<%= @match.dig("teams", "away", "name") %>" class="w-24 h-24 mx-auto mb-4">
+        <% end %>
+        <h3 class="text-xl font-bold"><%= @match.dig("teams", "away", "name") %></h3>
+      </div>
+    </div>
+
+    <div class="border-t pt-6">
+      <div class="grid grid-cols-2 gap-4 text-center">
+        <div>
+          <p class="text-gray-500">Venue</p>
+          <p class="font-medium"><%= @match.dig("fixture", "venue", "name") || "TBD" %></p>
+          <p class="text-sm text-gray-400"><%= @match.dig("fixture", "venue", "city") %></p>
+        </div>
+        <div>
+          <p class="text-gray-500">Referee</p>
+          <p class="font-medium"><%= @match.dig("fixture", "referee") || "TBD" %></p>
+        </div>
+      </div>
+    </div>
+
+    <% if @match["score"] && @match.dig("fixture", "status", "short") == "FT" %>
+      <div class="border-t pt-6 mt-6">
+        <h4 class="text-lg font-bold mb-4 text-center">Score Details</h4>
+        <div class="grid grid-cols-3 gap-4 text-center">
+          <div>
+            <p class="text-gray-500">Half Time</p>
+            <p class="font-medium"><%= @match.dig("score", "halftime", "home") %> - <%= @match.dig("score", "halftime", "away") %></p>
+          </div>
+          <div>
+            <p class="text-gray-500">Full Time</p>
+            <p class="font-medium"><%= @match.dig("score", "fulltime", "home") %> - <%= @match.dig("score", "fulltime", "away") %></p>
+          </div>
+          <% if @match.dig("score", "extratime", "home") %>
+            <div>
+              <p class="text-gray-500">Extra Time</p>
+              <p class="font-medium"><%= @match.dig("score", "extratime", "home") %> - <%= @match.dig("score", "extratime", "away") %></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="text-center mt-6">
+    <%= link_to "Back", :back, class: "text-green-600 hover:underline" %>
+  </div>
+<% else %>
+  <div class="bg-white rounded-lg shadow p-8 text-center">
+    <p class="text-gray-500 text-lg">Match not found.</p>
+  </div>
+<% end %>

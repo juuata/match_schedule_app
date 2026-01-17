@@ -1,0 +1,50 @@
+<%= link_to match_path(match.dig("fixture", "id")), class: "block bg-white rounded-lg shadow hover:shadow-lg transition p-4 mb-4" do %>
+  <div class="flex items-center justify-between">
+    <div class="flex items-center space-x-4 flex-1">
+      <div class="text-center w-32">
+        <% if match.dig("teams", "home", "logo") %>
+          <img src="<%= match.dig("teams", "home", "logo") %>" alt="<%= match.dig("teams", "home", "name") %>" class="w-12 h-12 mx-auto mb-2">
+        <% end %>
+        <p class="text-sm font-medium truncate"><%= match.dig("teams", "home", "name") %></p>
+      </div>
+
+      <div class="text-center flex-shrink-0">
+        <% status = match.dig("fixture", "status", "short") %>
+        <% if ["FT", "AET", "PEN"].include?(status) %>
+          <div class="text-2xl font-bold">
+            <span class="<%= match.dig("teams", "home", "winner") ? "text-green-600" : "" %>"><%= match.dig("goals", "home") %></span>
+            <span class="mx-2">-</span>
+            <span class="<%= match.dig("teams", "away", "winner") ? "text-green-600" : "" %>"><%= match.dig("goals", "away") %></span>
+          </div>
+          <p class="text-sm text-gray-500">Final</p>
+        <% elsif ["1H", "2H", "HT", "ET", "P", "LIVE"].include?(status) %>
+          <div class="text-2xl font-bold text-red-600">
+            <%= match.dig("goals", "home") %> - <%= match.dig("goals", "away") %>
+          </div>
+          <p class="text-sm text-red-500 animate-pulse">
+            <%= match.dig("fixture", "status", "elapsed") %>'
+          </p>
+        <% else %>
+          <div class="text-lg font-medium text-gray-600">
+            <%= Time.parse(match.dig("fixture", "date")).strftime("%H:%M") %>
+          </div>
+          <p class="text-sm text-gray-500">Kick-off</p>
+        <% end %>
+      </div>
+
+      <div class="text-center w-32">
+        <% if match.dig("teams", "away", "logo") %>
+          <img src="<%= match.dig("teams", "away", "logo") %>" alt="<%= match.dig("teams", "away", "name") %>" class="w-12 h-12 mx-auto mb-2">
+        <% end %>
+        <p class="text-sm font-medium truncate"><%= match.dig("teams", "away", "name") %></p>
+      </div>
+    </div>
+
+    <div class="ml-4 text-right">
+      <% if match.dig("league", "logo") %>
+        <img src="<%= match.dig("league", "logo") %>" alt="<%= match.dig("league", "name") %>" class="w-8 h-8 ml-auto">
+      <% end %>
+      <p class="text-xs text-gray-400 mt-1"><%= match.dig("league", "name") %></p>
+    </div>
+  </div>
+<% end %>

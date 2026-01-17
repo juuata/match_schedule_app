@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Football Match Schedule</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="bg-gray-100 min-h-screen">
+    <nav class="bg-green-700 text-white shadow-lg">
+      <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex items-center">
+            <%= link_to "Football Match Schedule", root_path, class: "text-xl font-bold" %>
+          </div>
+          <div class="flex space-x-4">
+            <%= link_to "Leagues", leagues_path, class: "hover:bg-green-600 px-3 py-2 rounded" %>
+            <%= link_to "Schedule", schedule_matches_path, class: "hover:bg-green-600 px-3 py-2 rounded" %>
+            <%= link_to "Results", results_matches_path, class: "hover:bg-green-600 px-3 py-2 rounded" %>
+            <%= link_to "Live", live_matches_path, class: "hover:bg-green-600 px-3 py-2 rounded" %>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container mx-auto mt-8 px-4">
+      <%= yield %>
+    </main>
+
+    <footer class="mt-16 py-8 bg-gray-800 text-gray-400 text-center">
+      <p>Powered by API-Football</p>
+    </footer>
+  </body>
+</html>

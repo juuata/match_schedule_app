@@ -1,0 +1,86 @@
+<h1 class="text-3xl font-bold mb-8">League Standings</h1>
+
+<%= render "shared/league_selector",
+    url: standings_matches_path,
+    selected_league: @league_id %>
+
+<% if @errors.present? %>
+  <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+    <p><%= @errors.join(", ") %></p>
+  </div>
+<% end %>
+
+<% if @league_info %>
+  <div class="flex items-center mb-6">
+    <% if @league_info["logo"] %>
+      <img src="<%= @league_info["logo"] %>" alt="<%= @league_info["name"] %>" class="w-16 h-16 mr-4">
+    <% end %>
+    <div>
+      <h2 class="text-2xl font-bold"><%= @league_info["name"] %></h2>
+      <p class="text-gray-500"><%= @league_info["country"] %> - Season <%= @league_info["season"] %></p>
+    </div>
+  </div>
+<% end %>
+
+<% if @standings.empty? %>
+  <div class="bg-white rounded-lg shadow p-8 text-center">
+    <p class="text-gray-500 text-lg">Standings not available.</p>
+  </div>
+<% else %>
+  <div class="bg-white rounded-lg shadow overflow-hidden">
+    <table class="w-full">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="px-4 py-3 text-left">#</th>
+          <th class="px-4 py-3 text-left">Team</th>
+          <th class="px-4 py-3 text-center">P</th>
+          <th class="px-4 py-3 text-center">W</th>
+          <th class="px-4 py-3 text-center">D</th>
+          <th class="px-4 py-3 text-center">L</th>
+          <th class="px-4 py-3 text-center">GF</th>
+          <th class="px-4 py-3 text-center">GA</th>
+          <th class="px-4 py-3 text-center">GD</th>
+          <th class="px-4 py-3 text-center font-bold">Pts</th>
+          <th class="px-4 py-3 text-center">Form</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @standings.each do |team| %>
+          <tr class="border-t hover:bg-gray-50">
+            <td class="px-4 py-3">
+              <span class="<%= team["rank"] <= 4 ? "text-green-600 font-bold" : team["rank"] >= @standings.length - 2 ? "text-red-600 font-bold" : "" %>">
+                <%= team["rank"] %>
+              </span>
+            </td>
+            <td class="px-4 py-3">
+              <div class="flex items-center">
+                <% if team.dig("team", "logo") %>
+                  <img src="<%= team.dig("team", "logo") %>" alt="<%= team.dig("team", "name") %>" class="w-6 h-6 mr-2">
+                <% end %>
+                <span class="font-medium"><%= team.dig("team", "name") %></span>
+              </div>
+            </td>
+            <td class="px-4 py-3 text-center"><%= team.dig("all", "played") %></td>
+            <td class="px-4 py-3 text-center"><%= team.dig("all", "win") %></td>
+            <td class="px-4 py-3 text-center"><%= team.dig("all", "draw") %></td>
+            <td class="px-4 py-3 text-center"><%= team.dig("all", "lose") %></td>
+            <td class="px-4 py-3 text-center"><%= team.dig("all", "goals", "for") %></td>
+            <td class="px-4 py-3 text-center"><%= team.dig("all", "goals", "against") %></td>
+            <td class="px-4 py-3 text-center"><%= team["goalsDiff"] %></td>
+            <td class="px-4 py-3 text-center font-bold"><%= team["points"] %></td>
+            <td class="px-4 py-3 text-center">
+              <% if team["form"] %>
+                <% team["form"].chars.last(5).each do |result| %>
+                  <span class="inline-block w-5 h-5 text-xs text-white rounded text-center leading-5
+                    <%= result == "W" ? "bg-green-500" : result == "D" ? "bg-gray-400" : "bg-red-500" %>">
+                    <%= result %>
+                  </span>
+                <% end %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>

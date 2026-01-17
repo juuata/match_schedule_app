@@ -1,0 +1,21 @@
+<h1 class="text-3xl font-bold mb-8">Recent Results</h1>
+
+<%= render "shared/league_selector",
+    url: results_matches_path,
+    selected_league: @league_id %>
+
+<% if @errors.present? %>
+  <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+    <p><%= @errors.join(", ") %></p>
+  </div>
+<% end %>
+
+<% if @matches.empty? %>
+  <div class="bg-white rounded-lg shadow p-8 text-center">
+    <p class="text-gray-500 text-lg">No recent results found.</p>
+  </div>
+<% else %>
+  <% @matches.each do |match| %>
+    <%= render "shared/match_card", match: match %>
+  <% end %>
+<% end %>
