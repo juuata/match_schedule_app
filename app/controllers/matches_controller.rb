@@ -1,5 +1,6 @@
 class MatchesController < ApplicationController
   before_action :set_api_service
+  before_action :set_dummy_mode_notice
 
   def index
     @date = params[:date] || Date.today.to_s
@@ -77,6 +78,10 @@ class MatchesController < ApplicationController
 
   def set_api_service
     @api_service = FootballApiService.new
+  end
+
+  def set_dummy_mode_notice
+    @using_dummy_data = @api_service.using_dummy_data?
   end
 
   def current_season
