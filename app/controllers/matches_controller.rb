@@ -85,7 +85,10 @@ class MatchesController < ApplicationController
   end
 
   def current_season
-    today = Date.today
-    today.month >= 7 ? today.year : today.year - 1
+    # API-Football無料プランは2022-2024シーズンのみアクセス可能
+    # 有料プランに変更した場合は下記のコメントアウトを解除
+    # today = Date.today
+    # today.month >= 7 ? today.year : today.year - 1
+    2024
   end
 end

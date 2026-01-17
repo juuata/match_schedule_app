@@ -6,7 +6,7 @@
 
 <% if @errors.present? %>
   <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
-    <p><%= @errors.join(", ") %></p>
+    <p><%= @errors.is_a?(Hash) ? @errors.values.join(", ") : @errors.join(", ") %></p>
   </div>
 <% end %>
 
