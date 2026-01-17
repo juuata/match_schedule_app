@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
-    <title>Football Match Schedule</title>
+    <title>GOALPOST - Live Scores & Updates</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,17 +11,19 @@
   </head>
 
   <body class="bg-gray-100 min-h-screen">
-    <nav class="bg-green-700 text-white shadow-lg">
+    <nav class="bg-white shadow-lg">
       <div class="container mx-auto px-4">
-        <div class="flex items-center justify-between h-16">
+        <div class="flex items-center justify-between h-20">
           <div class="flex items-center">
-            <%= link_to "Football Match Schedule", root_path, class: "text-xl font-bold" %>
+            <%= link_to root_path, class: "flex items-center" do %>
+              <%= image_tag "logo.png", alt: "GOALPOST", class: "h-20" %>
+            <% end %>
           </div>
           <div class="flex space-x-4">
-            <%= link_to "Leagues", leagues_path, class: "hover:bg-green-600 px-3 py-2 rounded" %>
-            <%= link_to "Schedule", schedule_matches_path, class: "hover:bg-green-600 px-3 py-2 rounded" %>
-            <%= link_to "Results", results_matches_path, class: "hover:bg-green-600 px-3 py-2 rounded" %>
-            <%= link_to "Live", live_matches_path, class: "hover:bg-green-600 px-3 py-2 rounded" %>
+            <%= link_to "リーグ一覧", leagues_path, class: "text-gray-700 hover:bg-sky-100 hover:text-sky-600 px-3 py-2 rounded font-medium" %>
+            <%= link_to "試合日程", schedule_matches_path, class: "text-gray-700 hover:bg-sky-100 hover:text-sky-600 px-3 py-2 rounded font-medium" %>
+            <%= link_to "試合結果", results_matches_path, class: "text-gray-700 hover:bg-sky-100 hover:text-sky-600 px-3 py-2 rounded font-medium" %>
+            <%= link_to "ライブ", live_matches_path, class: "text-gray-700 hover:bg-sky-100 hover:text-sky-600 px-3 py-2 rounded font-medium" %>
           </div>
         </div>
       </div>
@@ -34,7 +36,7 @@
             <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
             </svg>
-            <p><strong>Demo Mode:</strong> Displaying sample data. Set your API key in <code class="bg-yellow-200 px-1 rounded">.env</code> file to see real match data.</p>
+            <p><strong>デモモード:</strong> サンプルデータを表示しています。実際の試合データを表示するには <code class="bg-yellow-200 px-1 rounded">.env</code> ファイルにAPIキーを設定してください。</p>
           </div>
         </div>
       <% end %>

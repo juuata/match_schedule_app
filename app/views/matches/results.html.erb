@@ -1,4 +1,4 @@
-<h1 class="text-3xl font-bold mb-8">Recent Results</h1>
+<h1 class="text-3xl font-bold mb-8">試合結果</h1>
 
 <%= render "shared/league_selector",
     url: results_matches_path,
@@ -12,7 +12,7 @@
 
 <% if @matches.empty? %>
   <div class="bg-white rounded-lg shadow p-8 text-center">
-    <p class="text-gray-500 text-lg">No recent results found.</p>
+    <p class="text-gray-500 text-lg">最近の試合結果はありません。</p>
   </div>
 <% else %>
   <% @matches.each do |match| %>

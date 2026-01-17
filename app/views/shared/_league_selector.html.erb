@@ -1,30 +1,38 @@
 <div class="mb-6">
-  <%= form_with url: url, method: :get, class: "flex items-center space-x-4" do |f| %>
-    <label class="font-medium">League:</label>
-    <%= select_tag :league_id,
-        options_for_select([
-          ["Premier League", 39],
-          ["La Liga", 140],
-          ["Serie A", 135],
-          ["Bundesliga", 78],
-          ["Ligue 1", 61],
-          ["J1 League", 98],
-          ["Champions League", 2],
-          ["Europa League", 3]
-        ], selected_league),
-        class: "border rounded px-3 py-2",
-        onchange: "this.form.submit()" %>
+  <%= form_with url: url, method: :get, class: "flex flex-wrap items-center gap-4" do |f| %>
+    <div class="flex items-center">
+      <label class="font-medium mr-2">リーグ:</label>
+      <%= select_tag :league_id,
+          options_for_select([
+            ["プレミアリーグ", 39],
+            ["ラ・リーガ", 140],
+            ["セリエA", 135],
+            ["ブンデスリーガ", 78],
+            ["リーグ・アン", 61],
+            ["J1リーグ", 98],
+            ["チャンピオンズリーグ", 2],
+            ["ヨーロッパリーグ", 3]
+          ], selected_league),
+          class: "border rounded px-3 py-2",
+          onchange: "this.form.submit()" %>
+    </div>
 
     <% if local_assigns[:show_date] %>
-      <label class="font-medium ml-4">Date:</label>
-      <%= date_field_tag :date, date_value, class: "border rounded px-3 py-2", onchange: "this.form.submit()" %>
+      <div class="flex items-center">
+        <label class="font-medium mr-2">日付:</label>
+        <%= date_field_tag :date, date_value, class: "border rounded px-3 py-2", onchange: "this.form.submit()" %>
+      </div>
     <% end %>
 
     <% if local_assigns[:show_date_range] %>
-      <label class="font-medium ml-4">From:</label>
-      <%= date_field_tag :from, from_value, class: "border rounded px-3 py-2", onchange: "this.form.submit()" %>
-      <label class="font-medium">To:</label>
-      <%= date_field_tag :to, to_value, class: "border rounded px-3 py-2", onchange: "this.form.submit()" %>
+      <div class="flex items-center">
+        <label class="font-medium mr-2">開始:</label>
+        <%= date_field_tag :from, from_value, class: "border rounded px-3 py-2", onchange: "this.form.submit()" %>
+      </div>
+      <div class="flex items-center">
+        <label class="font-medium mr-2">終了:</label>
+        <%= date_field_tag :to, to_value, class: "border rounded px-3 py-2", onchange: "this.form.submit()" %>
+      </div>
     <% end %>
   <% end %>
 </div>

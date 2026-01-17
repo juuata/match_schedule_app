@@ -1,4 +1,4 @@
-<h1 class="text-3xl font-bold mb-8">Upcoming Matches</h1>
+<h1 class="text-3xl font-bold mb-8">試合日程</h1>
 
 <%= render "shared/league_selector",
     url: schedule_matches_path,
@@ -15,13 +15,13 @@
 
 <% if @matches.empty? %>
   <div class="bg-white rounded-lg shadow p-8 text-center">
-    <p class="text-gray-500 text-lg">No upcoming matches found.</p>
+    <p class="text-gray-500 text-lg">この期間に予定されている試合はありません。</p>
   </div>
 <% else %>
   <% @matches.sort.each do |date, matches| %>
     <div class="mb-8">
       <h2 class="text-xl font-bold mb-4 text-gray-700">
-        <%= date.strftime("%A, %B %d, %Y") %>
+        <%= I18n.l(date, format: :long) %>
       </h2>
       <% matches.each do |match| %>
         <%= render "shared/match_card", match: match %>

@@ -16,19 +16,23 @@
             <span class="mx-2">-</span>
             <span class="<%= match.dig("teams", "away", "winner") ? "text-green-600" : "" %>"><%= match.dig("goals", "away") %></span>
           </div>
-          <p class="text-sm text-gray-500">Final</p>
+          <p class="text-sm text-gray-500">試合終了</p>
         <% elsif ["1H", "2H", "HT", "ET", "P", "LIVE"].include?(status) %>
           <div class="text-2xl font-bold text-red-600">
             <%= match.dig("goals", "home") %> - <%= match.dig("goals", "away") %>
           </div>
           <p class="text-sm text-red-500 animate-pulse">
-            <%= match.dig("fixture", "status", "elapsed") %>'
+            <% if status == "HT" %>
+              ハーフタイム
+            <% else %>
+              <%= match.dig("fixture", "status", "elapsed") %>'
+            <% end %>
           </p>
         <% else %>
           <div class="text-lg font-medium text-gray-600">
-            <%= Time.parse(match.dig("fixture", "date")).strftime("%H:%M") %>
+            <%= Time.parse(match.dig("fixture", "date")).in_time_zone("Asia/Tokyo").strftime("%H:%M") %>
           </div>
-          <p class="text-sm text-gray-500">Kick-off</p>
+          <p class="text-sm text-gray-500">キックオフ</p>
         <% end %>
       </div>
 

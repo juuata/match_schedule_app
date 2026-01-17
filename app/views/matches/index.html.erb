@@ -1,4 +1,4 @@
-<h1 class="text-3xl font-bold mb-8">Matches on <%= @date %></h1>
+<h1 class="text-3xl font-bold mb-8"><%= @date %> の試合</h1>
 
 <%= render "shared/league_selector",
     url: matches_path,
@@ -14,7 +14,7 @@
 
 <% if @matches.empty? %>
   <div class="bg-white rounded-lg shadow p-8 text-center">
-    <p class="text-gray-500 text-lg">No matches found for this date.</p>
+    <p class="text-gray-500 text-lg">この日の試合はありません。</p>
   </div>
 <% else %>
   <% @matches.each do |match| %>

@@ -1,4 +1,4 @@
-<h1 class="text-3xl font-bold mb-8">League Standings</h1>
+<h1 class="text-3xl font-bold mb-8">順位表</h1>
 
 <%= render "shared/league_selector",
     url: standings_matches_path,
@@ -17,31 +17,31 @@
     <% end %>
     <div>
       <h2 class="text-2xl font-bold"><%= @league_info["name"] %></h2>
-      <p class="text-gray-500"><%= @league_info["country"] %> - Season <%= @league_info["season"] %></p>
+      <p class="text-gray-500"><%= @league_info["country"] %> - <%= @league_info["season"] %>シーズン</p>
     </div>
   </div>
 <% end %>
 
 <% if @standings.empty? %>
   <div class="bg-white rounded-lg shadow p-8 text-center">
-    <p class="text-gray-500 text-lg">Standings not available.</p>
+    <p class="text-gray-500 text-lg">順位表データがありません。</p>
   </div>
 <% else %>
-  <div class="bg-white rounded-lg shadow overflow-hidden">
-    <table class="w-full">
+  <div class="bg-white rounded-lg shadow overflow-hidden overflow-x-auto">
+    <table class="w-full min-w-max">
       <thead class="bg-gray-100">
         <tr>
-          <th class="px-4 py-3 text-left">#</th>
-          <th class="px-4 py-3 text-left">Team</th>
-          <th class="px-4 py-3 text-center">P</th>
-          <th class="px-4 py-3 text-center">W</th>
-          <th class="px-4 py-3 text-center">D</th>
-          <th class="px-4 py-3 text-center">L</th>
-          <th class="px-4 py-3 text-center">GF</th>
-          <th class="px-4 py-3 text-center">GA</th>
-          <th class="px-4 py-3 text-center">GD</th>
-          <th class="px-4 py-3 text-center font-bold">Pts</th>
-          <th class="px-4 py-3 text-center">Form</th>
+          <th class="px-4 py-3 text-left">順位</th>
+          <th class="px-4 py-3 text-left">チーム</th>
+          <th class="px-4 py-3 text-center">試合</th>
+          <th class="px-4 py-3 text-center">勝</th>
+          <th class="px-4 py-3 text-center">分</th>
+          <th class="px-4 py-3 text-center">負</th>
+          <th class="px-4 py-3 text-center">得点</th>
+          <th class="px-4 py-3 text-center">失点</th>
+          <th class="px-4 py-3 text-center">得失差</th>
+          <th class="px-4 py-3 text-center font-bold">勝点</th>
+          <th class="px-4 py-3 text-center">直近</th>
         </tr>
       </thead>
       <tbody>
@@ -73,7 +73,7 @@
                 <% team["form"].chars.last(5).each do |result| %>
                   <span class="inline-block w-5 h-5 text-xs text-white rounded text-center leading-5
                     <%= result == "W" ? "bg-green-500" : result == "D" ? "bg-gray-400" : "bg-red-500" %>">
-                    <%= result %>
+                    <%= result == "W" ? "勝" : result == "D" ? "分" : "負" %>
                   </span>
                 <% end %>
               <% end %>

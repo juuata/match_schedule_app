@@ -1,5 +1,5 @@
 <h1 class="text-3xl font-bold mb-8">
-  Live Matches
+  ライブ中の試合
   <span class="inline-block w-3 h-3 bg-red-500 rounded-full animate-pulse ml-2"></span>
 </h1>
 
@@ -11,13 +11,13 @@
 
 <% if @matches.empty? %>
   <div class="bg-white rounded-lg shadow p-8 text-center">
-    <p class="text-gray-500 text-lg">No live matches at the moment.</p>
-    <p class="text-gray-400 mt-2">Check back later or view the schedule for upcoming matches.</p>
-    <%= link_to "View Schedule", schedule_matches_path, class: "inline-block mt-4 bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700" %>
+    <p class="text-gray-500 text-lg">現在進行中の試合はありません。</p>
+    <p class="text-gray-400 mt-2">試合日程から今後の試合をご確認ください。</p>
+    <%= link_to "試合日程を見る", schedule_matches_path, class: "inline-block mt-4 bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700" %>
   </div>
 <% else %>
   <div class="mb-4 text-right">
-    <p class="text-gray-500 text-sm">Auto-refresh is disabled. Reload page for updates.</p>
+    <p class="text-gray-500 text-sm">最新情報を見るにはページを再読み込みしてください。</p>
   </div>
   <% @matches.each do |match| %>
     <%= render "shared/match_card", match: match %>
