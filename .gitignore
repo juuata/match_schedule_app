@@ -45,3 +45,6 @@ yarn-debug.log*
 
 # Ignore macOS files
 .DS_Store
+
+# Ignore Claude Code settings
+.claude/
