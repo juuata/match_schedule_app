@@ -6,6 +6,9 @@
 
 <% if @match %>
   <div class="bg-white rounded-lg shadow-lg p-8 max-w-4xl mx-auto">
+    <div class="flex justify-end mb-4">
+      <%= render "favorites/button", fixture_id: @match.dig("fixture", "id") %>
+    </div>
     <div class="text-center mb-6">
       <% if @match.dig("league", "logo") %>
         <img src="<%= @match.dig("league", "logo") %>" alt="<%= @match.dig("league", "name") %>" class="w-16 h-16 mx-auto mb-2">

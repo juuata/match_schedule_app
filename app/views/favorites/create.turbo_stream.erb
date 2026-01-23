@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "favorite_button_#{params[:fixture_id]}" do %>
+  <%= render "favorites/button", fixture_id: params[:fixture_id].to_i %>
+<% end %>

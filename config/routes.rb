@@ -19,5 +19,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :favorites, only: [:index, :create]
+  delete "favorites", to: "favorites#destroy"
+
   get "up" => "rails/health#show", as: :rails_health_check
 end

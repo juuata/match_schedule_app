@@ -1,0 +1,12 @@
+<h1 class="text-3xl font-bold mb-8">お気に入り</h1>
+
+<% if @matches.empty? %>
+  <div class="bg-white rounded-lg shadow p-8 text-center">
+    <p class="text-gray-500 text-lg">お気に入りに登録された試合はありません。</p>
+    <p class="text-gray-400 mt-2">試合カードの星アイコンをクリックしてお気に入りに追加できます。</p>
+  </div>
+<% else %>
+  <% @matches.each do |match| %>
+    <%= render "shared/match_card", match: match %>
+  <% end %>
+<% end %>
