@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "leagues#index"
+  root to: redirect("/leagues")
 
   # 認証関連
   get "signup", to: "users#new"
