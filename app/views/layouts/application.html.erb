@@ -19,17 +19,34 @@
               <%= image_tag "logo.png", alt: "GOALPOST", class: "h-20" %>
             <% end %>
           </div>
-          <div class="flex space-x-4">
-            <%= link_to "リーグ一覧", leagues_path, class: "text-gray-700 hover:bg-sky-100 hover:text-sky-600 px-3 py-2 rounded font-medium" %>
-            <%= link_to "試合日程", schedule_matches_path, class: "text-gray-700 hover:bg-sky-100 hover:text-sky-600 px-3 py-2 rounded font-medium" %>
-            <%= link_to "試合結果", results_matches_path, class: "text-gray-700 hover:bg-sky-100 hover:text-sky-600 px-3 py-2 rounded font-medium" %>
-            <%= link_to "ライブ", live_matches_path, class: "text-gray-700 hover:bg-sky-100 hover:text-sky-600 px-3 py-2 rounded font-medium" %>
+          <div class="flex items-center">
+            <% if logged_in? %>
+              <%= link_to "リーグ一覧", leagues_path, class: "text-gray-700 hover:bg-gray-200 px-4 h-20 flex items-center font-medium transition duration-200" %>
+              <%= link_to "試合日程", schedule_matches_path, class: "text-gray-700 hover:bg-gray-200 px-4 h-20 flex items-center font-medium transition duration-200" %>
+              <%= link_to "試合結果", results_matches_path, class: "text-gray-700 hover:bg-gray-200 px-4 h-20 flex items-center font-medium transition duration-200" %>
+              <%= link_to "ライブ", live_matches_path, class: "text-gray-700 hover:bg-gray-200 px-4 h-20 flex items-center font-medium transition duration-200" %>
+
+              <div class="border-l border-gray-300 h-8 mx-4"></div>
+
+              <span class="text-gray-700 font-medium px-2">ようこそ、<%= current_user.name %>さん</span>
+              <%= button_to "ログアウト", logout_path, method: :delete, class: "bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg font-medium transition duration-200 ml-2" %>
+            <% end %>
           </div>
         </div>
       </div>
     </nav>
 
     <main class="container mx-auto mt-8 px-4">
+      <% if flash[:notice] %>
+        <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-6">
+          <p><%= flash[:notice] %></p>
+        </div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6">
+          <p><%= flash[:alert] %></p>
+        </div>
+      <% end %>
       <% if @using_dummy_data %>
         <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-6">
           <div class="flex items-center">
