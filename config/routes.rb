@@ -22,5 +22,8 @@ Rails.application.routes.draw do
   resources :favorites, only: [:index, :create]
   delete "favorites", to: "favorites#destroy"
 
+  get "search", to: "search#index"
+  get "search/teams_for_league", to: "search#teams_for_league"
+
   get "up" => "rails/health#show", as: :rails_health_check
 end

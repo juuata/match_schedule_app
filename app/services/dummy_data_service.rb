@@ -2,75 +2,75 @@ class DummyDataService
   TEAMS = {
     # Premier League
     39 => [
-      { id: 33, name: "Manchester United", logo: "https://media.api-sports.io/football/teams/33.png" },
-      { id: 34, name: "Newcastle", logo: "https://media.api-sports.io/football/teams/34.png" },
-      { id: 40, name: "Liverpool", logo: "https://media.api-sports.io/football/teams/40.png" },
-      { id: 42, name: "Arsenal", logo: "https://media.api-sports.io/football/teams/42.png" },
-      { id: 49, name: "Chelsea", logo: "https://media.api-sports.io/football/teams/49.png" },
-      { id: 50, name: "Manchester City", logo: "https://media.api-sports.io/football/teams/50.png" },
-      { id: 47, name: "Tottenham", logo: "https://media.api-sports.io/football/teams/47.png" },
-      { id: 66, name: "Aston Villa", logo: "https://media.api-sports.io/football/teams/66.png" }
+      { id: 33, name: "Manchester United", name_ja: "マンチェスター・ユナイテッド", logo: "https://media.api-sports.io/football/teams/33.png" },
+      { id: 34, name: "Newcastle", name_ja: "ニューカッスル", logo: "https://media.api-sports.io/football/teams/34.png" },
+      { id: 40, name: "Liverpool", name_ja: "リバプール", logo: "https://media.api-sports.io/football/teams/40.png" },
+      { id: 42, name: "Arsenal", name_ja: "アーセナル", logo: "https://media.api-sports.io/football/teams/42.png" },
+      { id: 49, name: "Chelsea", name_ja: "チェルシー", logo: "https://media.api-sports.io/football/teams/49.png" },
+      { id: 50, name: "Manchester City", name_ja: "マンチェスター・シティ", logo: "https://media.api-sports.io/football/teams/50.png" },
+      { id: 47, name: "Tottenham", name_ja: "トッテナム", logo: "https://media.api-sports.io/football/teams/47.png" },
+      { id: 66, name: "Aston Villa", name_ja: "アストン・ヴィラ", logo: "https://media.api-sports.io/football/teams/66.png" }
     ],
     # La Liga
     140 => [
-      { id: 529, name: "Barcelona", logo: "https://media.api-sports.io/football/teams/529.png" },
-      { id: 541, name: "Real Madrid", logo: "https://media.api-sports.io/football/teams/541.png" },
-      { id: 530, name: "Atletico Madrid", logo: "https://media.api-sports.io/football/teams/530.png" },
-      { id: 536, name: "Sevilla", logo: "https://media.api-sports.io/football/teams/536.png" }
+      { id: 529, name: "Barcelona", name_ja: "バルセロナ", logo: "https://media.api-sports.io/football/teams/529.png" },
+      { id: 541, name: "Real Madrid", name_ja: "レアル・マドリード", logo: "https://media.api-sports.io/football/teams/541.png" },
+      { id: 530, name: "Atletico Madrid", name_ja: "アトレティコ・マドリード", logo: "https://media.api-sports.io/football/teams/530.png" },
+      { id: 536, name: "Sevilla", name_ja: "セビージャ", logo: "https://media.api-sports.io/football/teams/536.png" }
     ],
     # Serie A
     135 => [
-      { id: 489, name: "AC Milan", logo: "https://media.api-sports.io/football/teams/489.png" },
-      { id: 496, name: "Juventus", logo: "https://media.api-sports.io/football/teams/496.png" },
-      { id: 505, name: "Inter", logo: "https://media.api-sports.io/football/teams/505.png" },
-      { id: 492, name: "Napoli", logo: "https://media.api-sports.io/football/teams/492.png" }
+      { id: 489, name: "AC Milan", name_ja: "ACミラン", logo: "https://media.api-sports.io/football/teams/489.png" },
+      { id: 496, name: "Juventus", name_ja: "ユベントス", logo: "https://media.api-sports.io/football/teams/496.png" },
+      { id: 505, name: "Inter", name_ja: "インテル", logo: "https://media.api-sports.io/football/teams/505.png" },
+      { id: 492, name: "Napoli", name_ja: "ナポリ", logo: "https://media.api-sports.io/football/teams/492.png" }
     ],
     # Bundesliga
     78 => [
-      { id: 157, name: "Bayern Munich", logo: "https://media.api-sports.io/football/teams/157.png" },
-      { id: 165, name: "Borussia Dortmund", logo: "https://media.api-sports.io/football/teams/165.png" },
-      { id: 173, name: "RB Leipzig", logo: "https://media.api-sports.io/football/teams/173.png" },
-      { id: 168, name: "Bayer Leverkusen", logo: "https://media.api-sports.io/football/teams/168.png" }
+      { id: 157, name: "Bayern Munich", name_ja: "バイエルン・ミュンヘン", logo: "https://media.api-sports.io/football/teams/157.png" },
+      { id: 165, name: "Borussia Dortmund", name_ja: "ボルシア・ドルトムント", logo: "https://media.api-sports.io/football/teams/165.png" },
+      { id: 173, name: "RB Leipzig", name_ja: "RBライプツィヒ", logo: "https://media.api-sports.io/football/teams/173.png" },
+      { id: 168, name: "Bayer Leverkusen", name_ja: "バイヤー・レバークーゼン", logo: "https://media.api-sports.io/football/teams/168.png" }
     ],
     # Ligue 1
     61 => [
-      { id: 85, name: "Paris Saint Germain", logo: "https://media.api-sports.io/football/teams/85.png" },
-      { id: 81, name: "Marseille", logo: "https://media.api-sports.io/football/teams/81.png" },
-      { id: 80, name: "Lyon", logo: "https://media.api-sports.io/football/teams/80.png" },
-      { id: 91, name: "Monaco", logo: "https://media.api-sports.io/football/teams/91.png" }
+      { id: 85, name: "Paris Saint Germain", name_ja: "パリ・サンジェルマン", logo: "https://media.api-sports.io/football/teams/85.png" },
+      { id: 81, name: "Marseille", name_ja: "マルセイユ", logo: "https://media.api-sports.io/football/teams/81.png" },
+      { id: 80, name: "Lyon", name_ja: "リヨン", logo: "https://media.api-sports.io/football/teams/80.png" },
+      { id: 91, name: "Monaco", name_ja: "モナコ", logo: "https://media.api-sports.io/football/teams/91.png" }
     ],
     # J1 League
     98 => [
-      { id: 295, name: "Vissel Kobe", logo: "https://media.api-sports.io/football/teams/295.png" },
-      { id: 286, name: "Yokohama F. Marinos", logo: "https://media.api-sports.io/football/teams/286.png" },
-      { id: 284, name: "Urawa Red Diamonds", logo: "https://media.api-sports.io/football/teams/284.png" },
-      { id: 289, name: "Kawasaki Frontale", logo: "https://media.api-sports.io/football/teams/289.png" }
+      { id: 295, name: "Vissel Kobe", name_ja: "ヴィッセル神戸", logo: "https://media.api-sports.io/football/teams/295.png" },
+      { id: 286, name: "Yokohama F. Marinos", name_ja: "横浜F・マリノス", logo: "https://media.api-sports.io/football/teams/286.png" },
+      { id: 284, name: "Urawa Red Diamonds", name_ja: "浦和レッズ", logo: "https://media.api-sports.io/football/teams/284.png" },
+      { id: 289, name: "Kawasaki Frontale", name_ja: "川崎フロンターレ", logo: "https://media.api-sports.io/football/teams/289.png" }
     ],
     # Champions League
     2 => [
-      { id: 50, name: "Manchester City", logo: "https://media.api-sports.io/football/teams/50.png" },
-      { id: 541, name: "Real Madrid", logo: "https://media.api-sports.io/football/teams/541.png" },
-      { id: 157, name: "Bayern Munich", logo: "https://media.api-sports.io/football/teams/157.png" },
-      { id: 85, name: "Paris Saint Germain", logo: "https://media.api-sports.io/football/teams/85.png" }
+      { id: 50, name: "Manchester City", name_ja: "マンチェスター・シティ", logo: "https://media.api-sports.io/football/teams/50.png" },
+      { id: 541, name: "Real Madrid", name_ja: "レアル・マドリード", logo: "https://media.api-sports.io/football/teams/541.png" },
+      { id: 157, name: "Bayern Munich", name_ja: "バイエルン・ミュンヘン", logo: "https://media.api-sports.io/football/teams/157.png" },
+      { id: 85, name: "Paris Saint Germain", name_ja: "パリ・サンジェルマン", logo: "https://media.api-sports.io/football/teams/85.png" }
     ],
     # Europa League
     3 => [
-      { id: 40, name: "Liverpool", logo: "https://media.api-sports.io/football/teams/40.png" },
-      { id: 530, name: "Atletico Madrid", logo: "https://media.api-sports.io/football/teams/530.png" },
-      { id: 496, name: "Juventus", logo: "https://media.api-sports.io/football/teams/496.png" },
-      { id: 165, name: "Borussia Dortmund", logo: "https://media.api-sports.io/football/teams/165.png" }
+      { id: 40, name: "Liverpool", name_ja: "リバプール", logo: "https://media.api-sports.io/football/teams/40.png" },
+      { id: 530, name: "Atletico Madrid", name_ja: "アトレティコ・マドリード", logo: "https://media.api-sports.io/football/teams/530.png" },
+      { id: 496, name: "Juventus", name_ja: "ユベントス", logo: "https://media.api-sports.io/football/teams/496.png" },
+      { id: 165, name: "Borussia Dortmund", name_ja: "ボルシア・ドルトムント", logo: "https://media.api-sports.io/football/teams/165.png" }
     ]
   }.freeze
 
   LEAGUES = {
-    39 => { id: 39, name: "Premier League", country: "England", logo: "https://media.api-sports.io/football/leagues/39.png" },
-    140 => { id: 140, name: "La Liga", country: "Spain", logo: "https://media.api-sports.io/football/leagues/140.png" },
-    135 => { id: 135, name: "Serie A", country: "Italy", logo: "https://media.api-sports.io/football/leagues/135.png" },
-    78 => { id: 78, name: "Bundesliga", country: "Germany", logo: "https://media.api-sports.io/football/leagues/78.png" },
-    61 => { id: 61, name: "Ligue 1", country: "France", logo: "https://media.api-sports.io/football/leagues/61.png" },
-    98 => { id: 98, name: "J1 League", country: "Japan", logo: "https://media.api-sports.io/football/leagues/98.png" },
-    2 => { id: 2, name: "UEFA Champions League", country: "World", logo: "https://media.api-sports.io/football/leagues/2.png" },
-    3 => { id: 3, name: "UEFA Europa League", country: "World", logo: "https://media.api-sports.io/football/leagues/3.png" }
+    39 => { id: 39, name: "Premier League", name_ja: "プレミアリーグ", country: "England", country_ja: "イングランド", logo: "https://media.api-sports.io/football/leagues/39.png" },
+    140 => { id: 140, name: "La Liga", name_ja: "ラ・リーガ", country: "Spain", country_ja: "スペイン", logo: "https://media.api-sports.io/football/leagues/140.png" },
+    135 => { id: 135, name: "Serie A", name_ja: "セリエA", country: "Italy", country_ja: "イタリア", logo: "https://media.api-sports.io/football/leagues/135.png" },
+    78 => { id: 78, name: "Bundesliga", name_ja: "ブンデスリーガ", country: "Germany", country_ja: "ドイツ", logo: "https://media.api-sports.io/football/leagues/78.png" },
+    61 => { id: 61, name: "Ligue 1", name_ja: "リーグ・アン", country: "France", country_ja: "フランス", logo: "https://media.api-sports.io/football/leagues/61.png" },
+    98 => { id: 98, name: "J1 League", name_ja: "J1リーグ", country: "Japan", country_ja: "日本", logo: "https://media.api-sports.io/football/leagues/98.png" },
+    2 => { id: 2, name: "UEFA Champions League", name_ja: "UEFAチャンピオンズリーグ", country: "World", country_ja: "世界", logo: "https://media.api-sports.io/football/leagues/2.png" },
+    3 => { id: 3, name: "UEFA Europa League", name_ja: "UEFAヨーロッパリーグ", country: "World", country_ja: "世界", logo: "https://media.api-sports.io/football/leagues/3.png" }
   }.freeze
 
   def initialize
