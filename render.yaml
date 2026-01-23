@@ -1,0 +1,26 @@
+databases:
+  - name: match-schedule-db
+    plan: free
+    databaseName: match_schedule_production
+    user: match_schedule
+
+services:
+  - type: web
+    name: match-schedule-app
+    runtime: ruby
+    plan: free
+    buildCommand: bundle install && bundle exec rails assets:precompile && bundle exec rails db:migrate
+    startCommand: bundle exec puma -C config/puma.rb
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: match-schedule-db
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
+      - key: FOOTBALL_API_KEY
+        sync: false
+      - key: SECRET_KEY_BASE
+        generateValue: true
+      - key: RAILS_ENV
+        value: production
