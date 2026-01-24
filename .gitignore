@@ -48,3 +48,6 @@ yarn-debug.log*
 
 # Ignore Claude Code settings
 .claude/
+
+# Ignore test result files
+単体・結合テスト結果_*.txt
