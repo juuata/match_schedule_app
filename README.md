@@ -80,12 +80,33 @@ http://localhost:3000 でアクセスできます。
 ```
 app/
 ├── controllers/
-│   ├── leagues_controller.rb    # リーグ一覧
-│   └── matches_controller.rb    # 試合関連
+│   ├── application_controller.rb
+│   ├── favorites_controller.rb   # お気に入り管理
+│   ├── leagues_controller.rb     # リーグ一覧
+│   ├── matches_controller.rb     # 試合関連
+│   ├── search_controller.rb      # 検索機能
+│   ├── sessions_controller.rb    # ログイン/ログアウト
+│   └── users_controller.rb       # ユーザー登録
+├── models/
+│   ├── favorite.rb               # お気に入りモデル
+│   └── user.rb                   # ユーザーモデル
 ├── services/
-│   └── football_api_service.rb  # API連携
+│   ├── dummy_data_service.rb     # ダミーデータ生成
+│   └── football_api_service.rb   # API連携
 └── views/
+    ├── favorites/
+    ├── layouts/
     ├── leagues/
     ├── matches/
-    └── shared/
+    ├── search/
+    ├── sessions/
+    ├── shared/
+    └── users/
+
+test/
+├── controllers/                   # コントローラーテスト
+├── helpers/                       # ヘルパーテスト
+├── integration/                   # 結合テスト
+├── models/                        # モデルテスト
+└── services/                      # サービステスト
 ```
